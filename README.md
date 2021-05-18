@@ -3,10 +3,10 @@
 ## Files
 
 * <tt>problema1/</tt>
-	* <tt>quiz10052021Prob1.m</tt>: solves parts (a), (b), and \(c\)
+	* <tt>quiz10052021Prob1.m</tt>: solves problem 1, parts (a), (b), and \(c\)
 * <tt>problema2/</tt>
-	* <tt>quiz10052021Prob2_a_b.m</tt>: solves parts (a) and (b)
-	* <tt>quiz10052021Prob2_c.m</tt>: solves part \(c\)
+	* <tt>quiz10052021Prob2_a_b.m</tt>: solves problem 2, parts (a) and (b)
+	* <tt>quiz10052021Prob2_c.m</tt>: solves problem 2, part \(c\)
 
 It's Likely you will have to change the parameters to fit to your problems' 
 enunciates. 
