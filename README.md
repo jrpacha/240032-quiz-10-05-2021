@@ -8,7 +8,7 @@
 	* <tt>quiz10052021Prob2_a_b.m</tt>: solves problem 2, parts (a) and (b)
 	* <tt>quiz10052021Prob2_c.m</tt>: solves problem 2, part \(c\)
 
-It's Likely you will have to change the parameters to fit to your problems' 
+It's Likely you will have to change the parameters to fit these scripts to your problems' 
 enunciates. 
 
 **Disclaimer:** this stuff is provided 'as is'. Please, check it (just in case you
