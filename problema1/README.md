@@ -2,7 +2,7 @@
 
 ## Files
 
-* <tt>quiz10052021Prob1.m</tt>: solves parts (a), (b), and (c).
+* <tt>quiz10052021Prob1.m</tt>: solves parts (a), (b), and \(c\)
 
 ### Plot and extra files needed
 
