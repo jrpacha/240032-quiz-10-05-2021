@@ -31,7 +31,8 @@ indR= find(nodes(:,1) > L1); %indices of the nodes at the right edge
 indL= find(nodes(:,1) < L2); %indices of the nodes at the left boundary
 
 %Find the index of the node at the center, which is placed at (x,y) = (0,0)
-indC=find(nodes(:,1) == 0 & nodes(:,2) == 0);
+%indC=find(nodes(:,1) == 0 & nodes(:,2) == 0);
+indC=find(abs(nodes(:,1)) < 0.001 & abs(nodes(:,2)) < 0.001);
 
 hold on
 plot(nodes(indT,1),nodes(indT,2),'ok','lineWidth',1,'markerFaceColor',...
