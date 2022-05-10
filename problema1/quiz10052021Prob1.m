@@ -123,6 +123,7 @@ u(freeNods)=um;
 
 ux = u(1:2:end);
 uy = u(2:2:end);
+U = [u(1:2:end),u(2:2:end)];
 
 %Post-process
 %Show the original structure and the deformed one
@@ -133,12 +134,11 @@ plotDeformedTruss(nodes,elem,u,esc);
 %Reaction Forces:
 RF = K*u-Q;
 
-RFX = RF(1:2:end);
-RFY = RF(2:2:end);
+R = [RF(1:2:end), RF(2:2:end)];
 
 %Strain
 L = nodes(elem(:,1),:)-nodes(elem(:,2),:);
-LD = L+[ux(elem(:,1))-ux(elem(:,2)), uy(elem(:,1))-uy(elem(:,2))];
+LD = L + U(elem(:,1),:)-U(elem(:,2),:);
 L = sqrt(L(:,1).^2+L(:,2).^2);  
 LD = sqrt(LD(:,1).^2+LD(:,2).^2);
 strain = abs(LD-L)./L;
@@ -148,7 +148,7 @@ strain = abs(LD-L)./L;
 fprintf('\n%6s%10s%14s%14s%14s\n',...
     'NOD.','UX(m)','UY(m)','RX(N)','RY(N)')
 fprintf('%4d%14.5e%14.5e%14.5e%14.5e\n',...
-    [(1:numNod)', ux, uy, RFX, RFY]')
+    [(1:numNod)', U, R]')
 
 %Print out the the elements's strains
 %Fancy output: don't waste your time with this at the exams!
@@ -164,18 +164,18 @@ fprintf('%4d%16.5e\n',...
 %Fancy output: don't waste your time with this at the exams!
 fprintf('\n(a) Displacements of the point A (in m):\n')
 fprintf('%6s%10s%14s\n', 'NOD.', 'UX(m)', 'UY(m)')
-fprintf('%4d%14.5e%14.5e\n',numNodA, ux(numNodA), uy(numNodA))
-fprintf('Hint. The x-displacement of  node D is: %.5e\n',ux(numNodD));
+fprintf('%4d%14.4e%14.4e\n',numNodA, ux(numNodA), uy(numNodA))
+fprintf('Hint. The x-displacement of  node D is: %.4e\n',ux(numNodD));
 
 %Print out the solution of part (b)
 %Fancy output: don't waste your time with this at the exams!
 fprintf('\n(b) Reaction force at point D (in N):\n')
 fprintf('%6s%10s%14s\n','NOD.','RX(N)','RY(N)')
-fprintf('%4d%14.5e%14.5e\n',...
+fprintf('%4d%14.4e%14.4e\n',...
     [numNodD,RF(dim*numNodD-1),RF(dim*numNodD)]')
 
 %Print out the solution of part (c)
 %Fancy output: don't waste your time with this at the exams!
-fprintf('\n(c) Maximal strain suffered by any element structure: %.5e\n',...
+fprintf('\n(c) Maximal strain suffered by any element structure: %.4e\n',...
     max(strain))
-fprintf('Hint. The strain for element AF is: %.5e\n',strain(numElemAF))
+fprintf('Hint. The strain for element AF is: %.4e\n',strain(numElemAF))
